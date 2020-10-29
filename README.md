@@ -1,3 +1,3 @@
-# Elm Workshop
+# Elm Workshop Solution
 
-See instructions in the [book](https://aksel.gitbook.io/elm-workshop/setup)
+A solution for [akselw/elm-workshop](https://github.com/akselw/elm-workshop).
