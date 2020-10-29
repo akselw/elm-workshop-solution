@@ -58,6 +58,14 @@ type Msg
     | ErrorLogged (Result Http.Error ())
 
 
+initSuccessModel : Article -> List Comment -> SuccessModel
+initSuccessModel article comments =
+    { article = article
+    , comments = comments
+    , newCommentState = WritingComment CommentForm.init
+    }
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
@@ -83,11 +91,7 @@ update msg model =
                 Ok comments ->
                     case model of
                         LoadingComments article ->
-                            ( Success
-                                { article = article
-                                , comments = comments
-                                , newCommentState = WritingComment CommentForm.init
-                                }
+                            ( Success (initSuccessModel article comments)
                             , Cmd.none
                             )
 
